@@ -1,0 +1,13 @@
+name: 'Run dotnet-script'
+description: 'Runs a C#/dotnet script with .NET and NuGet package support using dotnet-script'
+inputs:
+    script-path:
+        description: 'Path to the C# script file (.csx)'
+        required: true
+        
+runs:
+    using: "composite"
+    steps:
+        -   name: Run dotnet-script (${{ inputs.script-path }})
+            run: dotnet script ${{ inputs.script-path }}
+            shell: bash
